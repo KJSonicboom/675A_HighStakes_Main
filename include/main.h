@@ -45,6 +45,7 @@
 #include "675A/drive.hpp"
 #include "675A/opcontrol.hpp"
 #include "675A/auton.hpp"
+#include "675A/helpers.hpp"
 
 #include "robodash/api.h"
 

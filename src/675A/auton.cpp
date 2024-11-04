@@ -5,12 +5,21 @@
 
 using namespace pros;
 
-//txt file that I can't get to work
-bool isRedTeam;
+//path jerry testing
+ASSET(mogoRushV4_txt);
+
+void pathJerryTest(){
+    chassis.setPose(-59.163, -62.11, 90); //initial position has to be the same as the first two numberes in the txt file
+    chassis.follow(mogoRushV4_txt, 20, 15000);
+    chassis.waitUntilDone();
+    runIntake(-2000);
+    //chassis.waitUntil(24); //this is how you activate a mechanism midway through a path jerry motion
+
+}
 
 void blue_goal_side(){
 
-    isRedTeam = false;
+    isRedTeam = false; //for color sorting
 
     //set drivetrain to brake
 	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
@@ -20,7 +29,7 @@ void blue_goal_side(){
 
     //score alliance
     chassis.swingToHeading(220, DriveSide::LEFT, 500); 
-    chassis.moveToPoint(11.5, 6.5, 2000, {.forwards = false, .maxSpeed = 60}); 
+    chassis.moveToPoint(11.5, 6.5, 3000, {.forwards = false, .maxSpeed = 60}); 
     chassis.waitUntilDone();
     runIntake(2000);
     chassis.moveToPoint(0, 6.5, 250, {.forwards = false});
@@ -44,7 +53,7 @@ void blue_goal_side(){
 
 void blue_stack_side(){
 
-    isRedTeam = false;
+    isRedTeam = false; //for color sorting
 
     //set drivetrain to brake
 	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
@@ -82,7 +91,7 @@ void blue_stack_side(){
 
 void red_goal_side(){
 
-    isRedTeam = true;
+    isRedTeam = true; //for color sorting
     
     //set drivetrain to brake
 	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
@@ -121,7 +130,7 @@ void red_goal_side(){
 
 void red_stack_side(){
 
-    isRedTeam = true;
+    isRedTeam = true; //for color sorting
 
     //set drivetrain to brake
 	chassis.setBrakeMode(pros::E_MOTOR_BRAKE_HOLD);
